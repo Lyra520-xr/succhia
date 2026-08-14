@@ -241,13 +241,12 @@ def openai_chat(message):
         })
 
     second_payload = {
-        "model": "gpt-4.1-mini",
-        "instructions": instructions,
-        "previous_response_id": first["id"],
-        "input": tool_outputs,
-        "tools": tools,
-        "store": False
-    }
+    "model": "gpt-4.1-mini",
+    "instructions": instructions,
+    "input": first.get("output", []) + tool_outputs,
+    "tools": tools,
+    "store": False
+}
 
     req2 = urllib.request.Request(
         "https://api.openai.com/v1/responses",
