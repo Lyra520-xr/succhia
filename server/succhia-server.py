@@ -177,7 +177,7 @@ def openai_chat(message):
     ]
 
     payload = {
-        "model": "gpt-5",
+        "model": "gpt-4.1-mini",
         "instructions": instructions,
         "input": message,
         "tools": tools,
@@ -241,7 +241,7 @@ def openai_chat(message):
         })
 
     second_payload = {
-        "model": "gpt-5",
+        "model": "gpt-4.1-mini",
         "instructions": instructions,
         "previous_response_id": first["id"],
         "input": tool_outputs,
